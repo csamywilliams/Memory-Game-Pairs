@@ -1,4 +1,4 @@
-# Snap
+# Pairs
 
 ## Project setup
 ```
