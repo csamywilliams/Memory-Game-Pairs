@@ -1,5 +1,7 @@
 # Pairs
 
+Memory Game pairs using Vue.js and Vuex. 
+
 ## Project setup
 ```
 npm install
