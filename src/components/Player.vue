@@ -32,13 +32,13 @@ export default {
 
 #player1 {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 15%;
 }
 
 #player2 {
   position: absolute;
-  top: 25%;
+  top: 15%;
   right: 15%;
 }
 
