@@ -37,11 +37,9 @@ export default {
       return this.shuffleDeck(initialDeck);
     },
     shuffleDeck(deck) {
-      // eslint-disable-next-line
+
       for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-
-        // eslint-disable-next-line
         [deck[i], deck[j]] = [deck[j], deck[i]];
       }
 

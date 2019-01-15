@@ -18,7 +18,6 @@ export default {
       return this.$store.getters.score[`player${this.id}`];
     },
     getImgUrl() {
-      // eslint-disable-next-line
       return require(`../assets/farmer${this.id}.svg`);
     },
     styleClass() {

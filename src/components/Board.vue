@@ -19,7 +19,7 @@
       Play Again?
     </button>
 
-    <Deck v-show="gameReady" />
+    <Deck v-show="gameReady" ref="deck" />
   </div>
 </template>
 
@@ -65,6 +65,12 @@ export default {
   methods: {
     resetGame() {
       this.$store.dispatch('resetGame');
+      this.flipCardDeck();
+    },
+    flipCardDeck() {
+      this.$refs.deck.$children.forEach(element => {
+        element.$data.flipped = false;
+      });
     },
     gameDifficulty(type) {
       this.$store.dispatch('pickCards', { deck: this.gameplay[type] });

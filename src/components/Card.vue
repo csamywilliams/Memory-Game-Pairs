@@ -40,7 +40,6 @@ export default {
   },
   computed: {
     getImgUrl() {
-      // eslint-disable-next-line
       return require(`../assets/${this.pic}.svg`);
     },
   },
@@ -56,8 +55,6 @@ export default {
       });
 
       if (card.$store.getters.cardState === 'lose' && card.$store.getters.cardsAvailable === 0) {
-        card.$emit('flipCards');
-
         setTimeout(() => {
           card.flip();
           card.$parent.$children[card.$store.getters.firstCard].$data.flipped = false;
