@@ -9,7 +9,7 @@
     <p v-show="!gameover">Player {{ turn }}'s turn</p>
     <p v-show="gameover">{{ winner }}</p>
 
-    <div v-show="!gameover">
+    <div v-show="showGameDifficultyButtons">
       <button v-on:click="gameDifficulty('easy')" id="easy" class="button">Easy</button>
       <button v-on:click="gameDifficulty('medium')" id="medium" class="button">Medium</button>
       <button v-on:click="gameDifficulty('hard')" id="hard" class="button">Hard</button>
@@ -42,6 +42,7 @@ export default {
         medium: constants.MEDIUM_CARDS,
         hard: constants.HARD_CARDS,
       },
+      showGameButtons: true,
     };
   },
   computed: {
@@ -61,9 +62,13 @@ export default {
     gameReady() {
       return this.$store.state.gameReady;
     },
+    showGameDifficultyButtons() {
+      return this.showGameButtons;
+    }
   },
   methods: {
     resetGame() {
+      this.showGameButtons = true;
       this.$store.dispatch('resetGame');
       this.flipCardDeck();
     },
@@ -73,6 +78,7 @@ export default {
       });
     },
     gameDifficulty(type) {
+      this.showGameButtons = false;
       this.$store.dispatch('pickCards', { deck: this.gameplay[type] });
       this.$store.dispatch('gameReadyToPlay', { status: true });
     },
