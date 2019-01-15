@@ -79,6 +79,7 @@ export default {
     },
     gameDifficulty(type) {
       this.showGameButtons = false;
+      this.$store.commit('updateGameDifficulty', { difficulty: type });
       this.$store.dispatch('pickCards', { deck: this.gameplay[type] });
       this.$store.dispatch('gameReadyToPlay', { status: true });
     },

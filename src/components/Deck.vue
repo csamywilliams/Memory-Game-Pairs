@@ -1,5 +1,5 @@
 <template>
-  <div v-show="!inProgress" id="deck">
+  <div v-show="!inProgress" id="deck" :class="gridStyle">
       <div v-for="(card, index) in cardDeck" v-bind:key="index">
         <Card :pic="card" :cardId="index" :ref="'card' + index"/>
       </div>
@@ -25,6 +25,9 @@ export default {
   computed: {
     cardDeck() {
       return this.generateCards();
+    },
+    gridStyle() {
+      return this.$store.getters.difficulty;
     },
     ...mapGetters({
       deck: 'deck',
@@ -53,9 +56,22 @@ export default {
 
 #deck {
   display: grid;
+  margin-top: 10px;
+}
+
+.easy {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  margin-top: 10px;
+}
+
+.medium {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.hard {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
 }
 
 </style>

@@ -12,6 +12,7 @@ const initialState = {
   deck: constants.EASY_CARDS,
   pairs: constants.EASY_CARDS.length,
   gameReady: false,
+  difficulty: 'easy',
   cards: [],
   playerTurn: 1,
   selectedCard: "",
@@ -47,6 +48,9 @@ export default new Vuex.Store({
     },
     updatePairs(state, payload) {
       state.pairs = payload.deck.length;
+    },
+    updateGameDifficulty(state, payload) {
+      state.difficulty = payload.difficulty;
     },
     changeGameReady(state, payload) {
       state.gameReady = payload.status;
@@ -93,6 +97,7 @@ export default new Vuex.Store({
     deck: state => state.deck,
     pairs: state => state.pairs,
     gameReady: state => state.gameReady,
+    difficulty: state => state.difficulty,
     turn: state => state.playerTurn,
     cardState: state => state.cardState,
     cardsAvailable: state => state.cardsAvailable,
